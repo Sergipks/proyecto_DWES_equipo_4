@@ -42,3 +42,5 @@ Temporary Items
 ejercicios/
 Ejercicios/
 
+# Variables de entorno
+.env
