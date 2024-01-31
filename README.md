@@ -1,6 +1,7 @@
 # proyecto_DWES_equipo_4
 
 Funcionalidades mínimas del proyecto Re-Fores-Ta
+
     Newsletter - Marcos
         Formulario de suscripción al newsletter.
         Validación de campos (filtrado).
