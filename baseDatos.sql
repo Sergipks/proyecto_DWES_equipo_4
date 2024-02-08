@@ -11,7 +11,8 @@ nick VARCHAR(50) PRIMARY KEY,
 nombre VARCHAR(25),
 apellidos VARCHAR(50),
 correo VARCHAR(255),
-karma INT
+karma INT DEFAULT 0,
+suscritoNewsletter BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE eventos (
