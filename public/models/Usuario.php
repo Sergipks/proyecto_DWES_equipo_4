@@ -8,6 +8,7 @@ class Usuario
     private string $apellidos;
     private string $correo;
     private int $karma;
+    private bool $suscritoNewsletter;
     //Array de eventos a los que asiste
     private array $eventos_asistidos;
 
@@ -69,6 +70,16 @@ class Usuario
     public function setEventosAsistidos(array $eventos_asistidos): void
     {
         $this->eventos_asistidos = $eventos_asistidos;
+    }
+
+    public function getSuscritoNewsletter(): bool
+    {
+        return $this->suscritoNewsletter;
+    }
+
+    public function setSuscritoNewsletter(array $suscritoNewsletter): void
+    {
+        $this->suscritoNewsletter = $suscritoNewsletter;
     }
 }
 ?>
