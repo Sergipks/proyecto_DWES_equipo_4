@@ -1523,6 +1523,21 @@
             </div>
           </div>
         </form>
+        <?php if (isset($_GET["suscrito"]) && $_GET["suscrito"] == "true") { ?>
+          <p style="color: white;">Suscripción realizada correctamente</p>
+        <?php }
+        else if (isset($_GET["error"])) {
+          $error = "Error al suscribirse.";
+
+          if ($_GET["error"] == "yaSuscrito")
+            $error = "Error: ya estabas suscrito.";
+          else if ($_GET["error"] == "errorBaseDatos")
+            $error = "Error en la base de datos.";
+          else if ($_GET["error"] == "correoNoValido")
+            $error = "El correo introducido no es válido.";
+        }
+        echo "<p style='color: lightsalmon;'>$error</p>"
+        ?>
       </div>
     <!-- End of Newsletter form -->  
 
