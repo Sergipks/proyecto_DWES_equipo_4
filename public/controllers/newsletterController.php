@@ -1,5 +1,5 @@
 <?php
-require_once("iniciarPDO.php");
+require_once("DB/iniciarPDO.php");
 
 if (isset($_POST["email"]) && filter_var($_POST["email"], FILTER_SANITIZE_EMAIL) && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
     try {
