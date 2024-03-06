@@ -44,7 +44,8 @@
               <li class="active lien"><a href="#"><i class="fa fa-home sr-icons"></i> Home</a></li>
               <li class=" lien"><a href="about.html"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
               <li class=" lien"><a href="blog.html"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
-              <li><a href="contact.html"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
+              <li class=" lien"><a href="contact.html"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
+              <li class=" lien"><a href="controllers/especiesController.php"><i class="fa fa-tree sr-icons"></i> Nuestras especies</a></li>
             </ul>
          </div>
      </div>
@@ -92,9 +93,9 @@
               <div class="row popup-gallery">
                 <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="sol">
-                  <img class="img-responsive" src="images/index/portfolio/1.jpg" alt="First category picture">
-                  <div class="behind">
-                      <div class="head text-center">
+                    <img class="img-responsive" src="images/index/portfolio/1.jpg" alt="First category picture">
+                    <div class="behind"> 
+                        <div class="head text-center">
                         <ul class="list-inline">
                           <li>
                             <a class="gallery" href="images/index/gallery/1.jpg" data-toggle="tooltip" data-original-title="Quick View">
@@ -117,15 +118,15 @@
                             </a>
                           </li>
                         </ul>
-                      </div>
-                      <div class="row box-content">
+                        </div>
+                        <div class="row box-content">
                         <ul class="list-inline text-center">
                           <li><i class="fa fa-eye"></i> 1000</li>
                           <li><i class="fa fa-heart"></i> 500</li>
                           <li><i class="fa fa-download"></i> 100</li>
                         </ul>
-                      </div>
-                  </div>
+                        </div>
+                    </div>
                 </div>
                 </div> 
                 <div class="col-xs-12 col-sm-6 col-md-3">
