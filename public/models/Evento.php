@@ -1,119 +1,57 @@
 <?php
-require_once("Usuario.php");
+require_once("../DB/iniciarPDO.php");
 
 class Evento
 {
-    private int $id;
-    private string $nombre;
-    private string $ubicacion;
-    private string $tipo_terreno;
-    private DateTime $fecha;
-    private string $tipo_evento;
-    private Usuario $anfitrion;
-    private string $imagen;
-    //Array de usuarios
-    private array $asistentes;
-    //Array asociativo de especies plantadas junto a su cantidad
-    private array $plantadas;
-
-    public function getId(): int
+    public static function obtenerLogros($filtroAnyo = null, $filtroUbicacion = null, $filtroBeneficio = null) 
     {
-        return $this->id;
-    }
+        $pdo = iniciarPDO();
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
+        // Construir la consulta base
+        $query = "SELECT e.ubicacion, p.especie, e.fecha, SUM(p.cantidad) AS arboles_reforestados, es.beneficios
+                    FROM eventos e
+                    JOIN plantadas p ON e.id = p.evento
+                    JOIN especies es ON p.especie = es.nombre";
 
-    public function getNombre(): string
-    {
-        return $this->nombre;
-    }
+        // Construir la cláusula WHERE según los filtros proporcionados
+        $whereClauses = [];
+        if ($filtroAnyo) {
+            $whereClauses[] = "YEAR(e.fecha) = :anyo";
+        }
+        if ($filtroUbicacion) {
+            $whereClauses[] = "e.ubicacion LIKE :ubicacion";
+        }
+        if ($filtroBeneficio) {
+            $whereClauses[] = "es.beneficios LIKE :beneficio";
+        }
 
-    public function setNombre(string $nombre): void
-    {
-        $this->nombre = $nombre;
-    }
+        // Agregar la cláusula WHERE a la consulta si hay filtros aplicados
+        if (!empty($whereClauses)) {
+            $query .= " WHERE " . implode(" AND ", $whereClauses);
+        }
 
-    public function getUbicacion(): string
-    {
-        return $this->ubicacion;
-    }
+        // Agrupar y ordenar los resultados
+        $query .= " GROUP BY e.ubicacion, p.especie, e.fecha";
 
-    public function setUbicacion(string $ubicacion): void
-    {
-        $this->ubicacion = $ubicacion;
-    }
+        $statement = $pdo->prepare($query);
 
-    public function getTipoTerreno(): string
-    {
-        return $this->tipo_terreno;
-    }
+        // Asignar valores a los parámetros de los filtros
+        if ($filtroAnyo) {
+            $statement->bindParam(':anyo', $filtroAnyo, PDO::PARAM_INT);
+        }
+        if ($filtroUbicacion) {
+            $statement->bindParam(':ubicacion', $filtroUbicacion, PDO::PARAM_STR);
+        }
+        if ($filtroBeneficio) {
+            $statement->bindParam(':beneficio', $filtroBeneficio, PDO::PARAM_STR);
+        }
 
-    public function setTipoTerreno(string $tipo_terreno): void
-    {
-        $this->tipo_terreno = $tipo_terreno;
-    }
+        $statement->execute();
 
-    public function getFecha(): DateTime
-    {
-        return $this->fecha;
-    }
+        $pdo = null;
 
-    public function setFecha(DateTime $fecha): void
-    {
-        $this->fecha = $fecha;
-    }
-
-    public function getTipoEvento(): string
-    {
-        return $this->tipo_evento;
-    }
-
-    public function setTipoEvento(string $tipo_evento): void
-    {
-        $this->tipo_evento = $tipo_evento;
-    }
-
-    public function getAnfitrion(): Usuario
-    {
-        return $this->anfitrion;
-    }
-
-    public function setAnfitrion(Usuario $anfitrion): void
-    {
-        $this->anfitrion = $anfitrion;
-    }
-
-    public function getImagen(): string
-    {
-        return $this->imagen;
-    }
-
-    public function setImagen(string $imagen): void
-    {
-        $this->imagen = $imagen;
-    }
-
-    public function getAsistentes(): array
-    {
-        return $this->asistentes;
-    }
-
-    public function setAsistentes(array $asistentes): void
-    {
-        $this->asistentes = $asistentes;
-    }
-
-    public function getPlantadas(): array
-    {
-        return $this->plantadas;
-    }
-
-    public function setPlantadas(array $plantadas): void
-    {
-        $this->plantadas = $plantadas;
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
+
 ?>

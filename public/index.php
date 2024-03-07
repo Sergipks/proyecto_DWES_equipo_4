@@ -46,6 +46,7 @@
               <li class=" lien"><a href="blog.html"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
               <li class=" lien"><a href="contact.html"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
               <li class=" lien"><a href="controllers/especiesController.php"><i class="fa fa-tree sr-icons"></i> Nuestras especies</a></li>
+              <li class=" "><a href="controllers/logrosController.php"><i class="fa fa-trophy sr-icons"></i> Logros</a></li>
             </ul>
          </div>
      </div>

@@ -33,34 +33,54 @@
               <li class=" lien"><a href="#"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
               <li class=" lien"><a href="#"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
               <li class=" lien"><a href="#"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
-              <li class=" active lien"><a href="#"><i class="fa fa-tree sr-icons"></i> Nuestras especies</a></li>
-              <li class=" "><a href="../controllers/logrosController.php"><i class="fa fa-trophy sr-icons"></i> Logros</a></li>
+              <li class=" lien"><a href="../controllers/especiesController.php"><i class="fa fa-tree sr-icons"></i> Nuestras especies</a></li>
+              <li class=" active"><a href="#"><i class="fa fa-trophy sr-icons"></i> Logros</a></li>
             </ul>
          </div>
      </div>
    </nav>
 
-    <h1>Nuestras Especies</h1>
+    <h1>Logros</h1>
+
+    <!-- Formulario de Filtros -->
+    <form method="get" action="">
+        <label for="filtroAnyo">Filtrar por año:</label>
+        <select name="filtroAnyo" id="filtroAnyo">
+            <option value="" selected>-Seleccione el año-</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+        </select>
+
+        <label for="filtroUbicacion">Filtrar por ubicación:</label>
+        <input type="text" name="filtroUbicacion" id="filtroUbicacion" placeholder="Ingrese ubicación">
+
+        <label for="filtroBeneficio">Filtrar por beneficio:</label>
+        <input type="text" name="filtroBeneficio" id="filtroBeneficio" placeholder="Ingrese beneficio">
+
+        <button type="submit">Filtrar</button>
+    </form>
+
     <table border="1">
         <tr>
+            <th>Arboles reforestados</th>
+            <th>Ubicacion</th>
             <th>Especie</th>
-            <th>Clima</th>
-            <th>Región</th>
-            <th>Tiempo de Crecimiento</th>
+            <th>Fecha</th>
             <th>Beneficios</th>
-            <th>Imagen</th>
-            <th>Enlace a Wikipedia</th>
         </tr>
 
-        <?php foreach ($especies as $especie): ?>
+        <?php foreach ($logros as $logro): ?>
             <tr>
-                <td><?php echo $especie['nombre']; ?></td>
-                <td><?php echo $especie['clima']; ?></td>
-                <td><?php echo $especie['region']; ?></td>
-                <td><?php echo $especie['tiempo_crecimiento']; ?></td>
-                <td><?php echo $especie['beneficios']; ?></td>
-                <td><img height="100px" width="100px" src="<?php echo $especie['imagen']; ?>" alt="Imagen de la especie"></td>
-                <td><a href="<?php echo $especie['enlace_wikipedia']; ?>" target="_blank">Enlace a Wikipedia</a></td>
+                <td><?php echo $logro['arboles_reforestados']; ?></td>
+                <td><?php echo $logro['ubicacion']; ?></td>
+                <td><?php echo $logro['especie']; ?></td>
+                <td><?php echo $logro['fecha']; ?></td>
+                <td><?php echo $logro['beneficios']; ?></td>
             </tr>
         <?php endforeach; ?>
     </table>
