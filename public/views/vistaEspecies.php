@@ -32,7 +32,7 @@
               <li class=" lien"><a href="../index.php"><i class="fa fa-home sr-icons"></i> Home</a></li>
               <li class=" lien"><a href="#"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
               <li class=" lien"><a href="#"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
-              <li class=" lien"><a href="#"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
+              <li class=" lien"><a href="../views/contact.php"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
               <li class=" active lien"><a href="#"><i class="fa fa-tree sr-icons"></i> Nuestras especies</a></li>
               <li class=" "><a href="../controllers/logrosController.php"><i class="fa fa-trophy sr-icons"></i> Logros</a></li>
             </ul>

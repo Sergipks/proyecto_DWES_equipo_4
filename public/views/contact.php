@@ -7,11 +7,11 @@
 	<title>PhotographItem-Responsive Theme | Contact</title>
 
 	<!-- Bootstrap core css -->
-	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
 	<!-- Bootstrap core css -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<!-- Font Awesome icons -->
-	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,11 +38,12 @@
 	   	 </div>
 	   	 <div class="collapse navbar-collapse navbar-right" id="menu">
 	   	 	<ul class="nav navbar-nav">
-	   	 		<li class=" lien"><a href="index.html"><i class="fa fa-home sr-icons"></i> Home</a></li>
-	   	 		<li class="lien"><a href="about.html"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
-	   	 		<li class="lien"><a href="blog.html"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
-	   	 		<li class="active"><a href="#"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
-				<li class=" lien"><a href="controllers/especiesController.php"><i class="fa fa-tree sr-icons"></i> Nuestras especies</a></li>
+	   	 		<li class=" lien"><a href="../index.php"><i class="fa fa-home sr-icons"></i> Home</a></li>
+	   	 		<li class="lien"><a href="../about.html"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
+	   	 		<li class="lien"><a href="../blog.html"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
+	   	 		<li class="active lien"><a href="#"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
+				<li class=" lien"><a href="../controllers/especiesController.php"><i class="fa fa-tree sr-icons"></i> Nuestras especies</a></li>
+				<li class=" "><a href="../controllers/logrosController.php"><i class="fa fa-trophy sr-icons"></i> Logros</a></li>
 	   	 	</ul>
 	   	 </div>
    	 </div>
@@ -56,37 +57,44 @@
        	   <h1>CONTACT US</h1>
        	   <hr>
        	   <p>Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-	       <form class="form-horizontal">
+	       <form class="form-horizontal" action="../controllers/contactController.php" method="post">
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-6">
 	       	  	    <label class="label-control">First Name</label>
-	       	  		<input class="form-control" type="text">
+	       	  		<input class="form-control" type="text" name="firstName">
 	       	  	</div>
 	       	  	<div class="col-xs-6">
 	       	  	    <label class="label-control">Last Name</label>
-	       	  		<input class="form-control" type="text">
+	       	  		<input class="form-control" type="text" name="lastName">
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
 	       	  		<label class="label-control">Email</label>
-	       	  		<input class="form-control" type="text">
+	       	  		<input class="form-control" type="text" name="email">
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
 	       	  		<label class="label-control">Subject</label>
-	       	  		<input class="form-control" type="text">
+	       	  		<input class="form-control" type="text" name="subject">
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
 	       	  		<label class="label-control">Message</label>
-	       	  		<textarea class="form-control"></textarea>
-	       	  		<button class="pull-right btn btn-lg sr-button">SEND</button>
+	       	  		<textarea class="form-control" name="message"></textarea>
+	       	  		<button class="pull-right btn btn-lg sr-button" type="submit">SEND</button>
 	       	  	</div>
 	       	  </div>
 	       </form>
+		   <?php if (isset($_GET["correcto"]) && $_GET["correcto"] == "true") { ?>
+				<p style="color: white;">Mensaje enviado correctamente</p>
+			<?php } else if (isset($_GET["correcto"]) && $_GET["correcto"] == "false"){ ?>
+				<p style='color: lightsalmon;'>Error al enviar el mensaje</p>
+			<?php
+				}
+			?>
 	       <hr class="divider">
 	       <div class="address">
 	           <h3>GET IN TOUCH</h3>
