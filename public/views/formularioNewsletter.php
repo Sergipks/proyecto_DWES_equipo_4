@@ -1,7 +1,7 @@
 <div class="index-form text-center">
     <h3>SUSCRIBE TO OUR NEWSLETTER </h3>
     <h5>Suscribe to receive our News and Gifts</h5>
-    <form class="form-horizontal" action="newsletterController.php" method="post">
+    <form class="form-horizontal" action="controllers/newsletterController.php" method="post">
         <div class="form-group">
             <div class="col-xs-12 col-sm-6 col-sm-push-3 col-md-4 col-md-push-4">
                 <input class="form-control" type="text" placeholder="Type here your email address" name="email">
