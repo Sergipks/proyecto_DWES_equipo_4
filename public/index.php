@@ -84,14 +84,8 @@
             </thead>
           </table>
           <hr>
-        </div>
-      
+        </div>   
         <?php include "views/listaEventos.php"; ?>
-
-      
-
-        </div>
-    <!-- End of Navigation Table Content -->
       </div><!-- End of Index-body box -->
 
     <!-- Newsletter form -->

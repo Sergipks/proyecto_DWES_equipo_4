@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Asegurarse de que se haya proporcionado una URL de imagen válida
     if (isset($_POST['imagen_url']) && filter_var($_POST['imagen_url'], FILTER_VALIDATE_URL)) {
         // Incluir el archivo de inicialización de PDO
-        require_once("iniciarPDO.php");
+        require_once("DB/iniciarPDO.php");
 
         try {
             // Establecer la conexión a la base de datos

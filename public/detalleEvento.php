@@ -52,7 +52,7 @@
         <a href="index.php" class="back-btn">Volver a la lista de eventos</a>
         <?php
         // Incluir el archivo de inicialización de PDO
-        require_once("iniciarPDO.php");
+        require_once("DB/iniciarPDO.php");
 
         // Verificar si se proporcionó un ID de evento en la URL
         if (isset($_GET['id'])) {
