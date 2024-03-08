@@ -1,6 +1,0 @@
-{
-    "require": {
-        "kint-php/kint": "^5.1",
-        "php2wsdl/php2wsdl": "^0.7.0"
-    }
-}
