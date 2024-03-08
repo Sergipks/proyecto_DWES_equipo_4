@@ -1,6 +1,6 @@
 <?php
 function iniciarPDO(): PDO {
-    $env = parse_ini_file('../.env');
+    $env = parse_ini_file('.env');
     $host = $env["IP"];
     $dbname = $env["DATABASE"];
     $user = $env["USUARIO"];
