@@ -10,7 +10,7 @@
     <div class="row">
     <?php
     // Incluir el archivo de inicialización de PDO
-    require_once("../DB/iniciarPDO.php");
+    require_once("DB/iniciarPDO.php");
 
     try {
         // Establecer la conexión a la base de datos
